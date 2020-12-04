@@ -11,12 +11,15 @@
 - <アピールポイント>
   - ledを点滅させるだけでは面白みがないため、モータドライバ及びモータを使用する
 ## <実行環境>
-Raspberry Pi及びubuntu(desktop,serverとはない)が必要.
-次の環境では動作確認
-- Raspberry Pi Model 3B
-  - OS ubuntu mate 18.04
-## <使用回路>
+Raspberry Pi及びubuntu(desktop,serverとはない)が必要
+|||
+|:---|---:|
+|機種|Raspberry Pi Model 3B|
+|OS|ubuntu mate 18.04|
+|kani|kfkfkf|
 
+## <使用回路>
+![kani](images.githubusercontent.com/68257043/101170547-fa1fc800-3681-11eb-91da-447185cb1126.png)
 ## <動作手順>
 - ビルド
 ソースコード(.c)が存在するフォルダへ移動
