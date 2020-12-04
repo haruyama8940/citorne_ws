@@ -19,6 +19,10 @@ Raspberry Pi及びubuntu(desktop,serverとはない)が必要
 |OS|ubuntu mate 18.04|
 
 ## <使用回路>
+- motor1
+  - gpio25, gpio24
+- motor2
+  - gpio23, gpio22  
 ![kani](/Screenshot from 2020-11-23 13-03-15.png)
 ## <動作手順>
 - ビルド
