@@ -5,7 +5,7 @@
 #include <linux/uaccess.h>
 #include <linux/io.h>
 
-MODULE_AUTHOR("Ryuichi Ueda & Kenta Haruyama");
+MODULE_AUTHOR("Ryuichi Ueda & Haruyama Kenta & Naoya saito & Shogo Tkano & Syunsuke Takanami");
 MODULE_DESCRIPTION("driver for LED control");
 MODULE_LICENSE("GPL");
 MODULE_VERSION("0.0.1");
@@ -22,11 +22,39 @@ static ssize_t led_write(struct file* filp, const char* buf, size_t count, loff_
 	if(copy_from_user(&c,buf,sizeof(char)))
 		return -EFAULT;
 
-	if(c == '0')
+	if(c == '1'){
 		gpio_base[10] = 1 << 25;
-	else if(c == '1')
-		gpio_base[7] = 1 << 25;
+		gpio_base[7]  = 1 << 24;
+                gpio_base[10] = 1 << 23;
+		gpio_base[7]  = 1 << 22;
+    }
+	else if(c == '2'){
+		gpio_base[10] = 1 << 25;
+                gpio_base[7]  = 1 << 24;
+                gpio_base[7]  = 1 << 23;
+                gpio_base[10] = 1 << 22;
 
+    }
+    else if(c == '3'){
+		gpio_base[7]  = 1 << 25;
+                gpio_base[10] = 1 << 24;
+                gpio_base[10] = 1 << 23;
+                gpio_base[7]  = 1 << 22;
+
+    }
+    else if(c == '4'){
+		gpio_base[7] = 1 << 25;
+                gpio_base[10]  = 1 << 24;
+                gpio_base[7] = 1 << 23;
+                gpio_base[10]  = 1 << 22;
+    }
+   else if(c == '0'){
+		gpio_base[10] = 1 << 25;
+                gpio_base[10] = 1 << 24;
+                gpio_base[10] = 1 << 23;
+                gpio_base[10] = 1 << 22;
+
+    }
         return 1;
 }
 
@@ -39,7 +67,7 @@ static int __init init_mod(void)
 {
 	int retval;
 
-	gpio_base = ioremap_nocache(0xfe200000, 0xA0); //0xfe..:base address, 0xA0: region to map
+	gpio_base = ioremap_nocache(0x3f200000, 0xA0); //0xfe..:base address, 0xA0: region to map
 
 	const u32 led = 25;
 	const u32 index = led/10;//GPFSEL2
@@ -47,6 +75,29 @@ static int __init init_mod(void)
 	const u32 mask = ~(0x7 << shift);//11111111111111000111111111111111
 	gpio_base[index] = (gpio_base[index] & mask) | (0x1 << shift);//001: output flag
 	//11111111111111001111111111111111
+
+	const u32 led2 = 24;
+	const u32 index2 = led2/10;//GPFSEL2
+	const u32 shift2 = (led2%10)*3;//15bit
+	const u32 mask2 = ~(0x7 << shift2);//11111111111111000111111111111111
+	gpio_base[index2] = (gpio_base[index2] & mask2) | (0x1 << shift2);//001: output flag
+	//11111111111111001111111111111111
+	
+	const u32 led3 = 23;
+        const u32 index3 = led3/10;//GPFSEL2
+        const u32 shift3 = (led3%10)*3;//15bit
+        const u32 mask3 = ~(0x7 << shift3);//111111111111110001111111$
+        gpio_base[index3] = (gpio_base[index3] & mask3) | (0x1 << shift3);
+        //11111111111111001111111111111111
+
+	const u32 led4 = 22;
+        const u32 index4 = led4/10;//GPFSEL2
+        const u32 shift4 = (led4%10)*3;//15bit
+        const u32 mask4 = ~(0x7 << shift4);//111111111111110001111111$
+        gpio_base[index4] = (gpio_base[index4] & mask4) | (0x1 << shift4);
+        //11111111111111001111111111111111
+
+
 	
 	retval =  alloc_chrdev_region(&dev, 0, 1, "myled");
 	if(retval < 0){
