@@ -32,10 +32,10 @@ $sudo chmod 666 /dev/myled0
 ```
 - 動作
 ```bash:move
-$echo 1 > /dev/myled0
-$echo 2 > /dev/myled0
-$echo 3 > /dev/myled0
-$echo 4 > /dev/myled0
+$echo 1 > /dev/myled0 #
+$echo 2 > /dev/myled0 #
+$echo 3 > /dev/myled0 #
+$echo 4 > /dev/myled0 #
 ```
 - デバイスドライバの削除
 ```bash:delate device driver
