@@ -1,8 +1,8 @@
 # citorne_ws
 # ロボットシステム学
-## robsys2020 課題1 18C1096 春山　健太
+## robsys2020 課題1 春山　健太
 ## <共同製作者>
-- CIT 高野翔伍　高見俊介　斎藤尚也
+- 個人情報保護のためソースコード内ライセンスを参照
 ## 課題1 <内容>
 - <内容>
   - ledを２つ用意し、点灯消灯を行う。
@@ -19,7 +19,7 @@ Raspberry Pi及びubuntu(desktop,serverとはない)が必要
 |OS|ubuntu mate 18.04|
 
 ## <使用回路>
-![kani](images.githubusercontent.com/68257043/101170547-fa1fc800-3681-11eb-91da-447185cb1126.png)
+![kani]()
 ## <動作手順>
 - ビルド
 ソースコード(.c)が存在するフォルダへ移動
