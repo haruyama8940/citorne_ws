@@ -7,9 +7,10 @@
 - <内容>
   - ledを２つ用意し、点灯消灯を行う。
   - 講義で作成したデバイスドライバを改造し、モータを駆動させる
-  - モータを２つ用いて車両型ロボットを製作、動作させる
-- <アピールポイント>
-  - ledを点滅させるだけでは面白みがないため、モータドライバ及びモータを使用する
+  - 上記のデバイスドライバを用いてモータ２個を動力とする車両型ロボットを製作、動作させる
+
+## <動作動画>
+  - リンク　https://youtu.be/Q09gxp2ZfPM
 ## <実行環境>
 Raspberry Pi及びubuntu(desktop,serverとはない)が必要
 次の環境では動作を確認
@@ -19,11 +20,17 @@ Raspberry Pi及びubuntu(desktop,serverとはない)が必要
 |OS|ubuntu mate 18.04|
 
 ## <使用回路>
-- motor1
-  - gpio25, gpio24
-- motor2
-  - gpio23, gpio22  
+ギヤードDCモータ ×2  
+モータドライバ(TA7291P)   ×2
+単三電池 ×4  
+|||
+|:---|---:|
+|motor1|gpio25, gpio24|
+|motor2|gpio23, gpio22|
+
+モータとRaspberry PiのPIN接続は次のようになる
 ![kairo](https://github.com/haruyama8940/citorne_ws/blob/main/kairo.jpg)
+
 ## <動作手順>
 - ビルド
 ソースコード(.c)が存在するフォルダへ移動
@@ -36,10 +43,10 @@ $sudo chmod 666 /dev/myled0
 ```
 - 動作
 ```bash:move
-$echo 1 > /dev/myled0 #
-$echo 2 > /dev/myled0 #
-$echo 3 > /dev/myled0 #
-$echo 4 > /dev/myled0 #
+$echo 1 > /dev/myled0 #前進
+$echo 2 > /dev/myled0 #旋回
+$echo 3 > /dev/myled0 #旋回
+$echo 4 > /dev/myled0 #後進
 ```
 - デバイスドライバの削除
 ```bash:delate device driver
