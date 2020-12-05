@@ -44,8 +44,8 @@ $sudo chmod 666 /dev/myled0
 - 動作
 ```bash:move
 $echo 1 > /dev/myled0 #前進
-$echo 2 > /dev/myled0 #旋回
-$echo 3 > /dev/myled0 #旋回
+$echo 2 > /dev/myled0 #左旋回
+$echo 3 > /dev/myled0 #右旋回
 $echo 4 > /dev/myled0 #後進
 ```
 - デバイスドライバの削除
