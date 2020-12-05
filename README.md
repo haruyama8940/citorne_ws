@@ -23,7 +23,7 @@ Raspberry Pi及びubuntu(desktop,serverとはない)が必要
   - gpio25, gpio24
 - motor2
   - gpio23, gpio22  
-![kairo](/citorne_ws/kairo.jpg)
+![kairo](https://github.com/haruyama8940/citorne_ws/blob/main/kairo.jpg)
 ## <動作手順>
 - ビルド
 ソースコード(.c)が存在するフォルダへ移動
