@@ -13,7 +13,7 @@
 ## <動作動画>
   - リンク　https://youtu.be/Q09gxp2ZfPM
 ## <実行環境>
-Raspberry Pi及びubuntu(desktop,serverとはない)が必要
+Raspberry Pi及びubuntu(desktop,server問わない)が必要
 次の環境では動作を確認
 |||
 |:---|---:|
