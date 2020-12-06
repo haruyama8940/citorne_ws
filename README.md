@@ -28,8 +28,10 @@ Raspberry Pi及びubuntu(desktop,serverとはない)が必要
 |:---|---:|
 |motor1|gpio25, gpio24|
 |motor2|gpio23, gpio22|
+
 配線図
 ![bure](https://github.com/haruyama8940/citorne_ws/blob/main/burekairo.png)
+
 モータとRaspberry PiのPIN接続は次のようになる
 ![kairo](https://github.com/haruyama8940/citorne_ws/blob/main/kairo.jpg)
 
